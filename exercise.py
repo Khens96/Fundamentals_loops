@@ -2,25 +2,55 @@ def sum_with_while(start, end):
     """
     Calculate the sum of all numbers between start and end (inclusive) using a while loop.
     """
-    pass
+    sum = 0
+    for num in range(start, end + 1):
+        sum += num
+    return sum
+    
 
 def count_vowels_in_string(input_string):
     """
     Count the number of vowels in a given string using a for loop.
     """
-    pass
+    vowel_count = 0
+    vowels = "aeiouAEIOU"
+    for char in input_string:
+        if char in vowels:
+            vowel_count += 1
+    return vowel_count
+
 
 def filter_numbers(numbers):
     """
     Filter a list of numbers based on specific conditions using a for loop and conditionals.
     """
-    pass
+
+    result = {
+        'positive': [],
+        'negative': [],
+        'even': [],
+        'odd': [],
+    }
+
+    for num in numbers:
+        if num > 0:
+            result['positive'].append(num)
+        elif num < 0:
+            result['negative'].append(num)
+        if num % 2 == 0:
+            result['even'].append(num)
+        else:
+            result['odd'].append(num)
+    return result
+    
 
 def fibonacci_sequence(n):
     """
     Generate Fibonacci sequence up to n terms using a while loop.
     """
-    pass
+    if n <= 0:
+        return []
+    
 
 def pascals_triangle(rows):
     """
@@ -44,7 +74,9 @@ def is_palindrome(input_string):
     """
     Check if a given string is a palindrome (ignoring spaces, capitalization, and punctuation).
     """
-    pass
+    cleaned_string = ''.join(char.lower() for char in input_string if char.isalnum())
+
+    return cleaned_string == cleaned_string[::-1]
 
 def generate_permutations(input_string):
     """
@@ -56,7 +88,7 @@ def is_valid_sudoku(board):
     """
     Validate a given 9x9 Sudoku board.
     """
-    pass
+    
 
 def solve_n_queens(n):
     """
