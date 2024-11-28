@@ -56,19 +56,41 @@ def pascals_triangle(rows):
     """
     Generate Pascal's Triangle up to a given number of rows.
     """
-    pass
+    triangle = []
+    for n in range (rows):
+        row = [1] * (n + 1)
+
+        for k in range (1, n):
+            row[k] = triangle[n - 1][k - 1] + triangle[n - 1][k]
+    
+        triangle.append(row)
+    return triangle
 
 def tower_of_hanoi(n, source, target, auxiliary):
     """
     Solve the Tower of Hanoi problem recursively.
     """
-    pass
+    if n==1:
+        print ("Move disk 1 from source",source,"to destination",target)
+        return
+    tower_of_hanoi(n-1, source, auxiliary, target)
+    print ("Move disk",n,"from source",source,"to destination",target)
+    tower_of_hanoi(n-1, auxiliary, target, source)
+        
+n = 4
+tower_of_hanoi(n,'A','B','C') 
+            
 
 def find_dna_sequence(dna, sequence):
     """
     Find the first occurrence of a DNA subsequence within a larger DNA string.
     """
-    pass
+    return dna.find(sequence)
+    dna = "ATGCGTACG"
+    sequence = "GTA"
+    index = find_dna_sequence(dna, sequence)
+    print(index)
+
 
 def is_palindrome(input_string):
     """
@@ -82,7 +104,16 @@ def generate_permutations(input_string):
     """
     Return all possible permutations of a given string.
     """
-    pass
+    if len(input_string) <= 1:
+        return [input_string]
+
+    permutations = []
+    for i in range(len(input_string)):
+        remaining_string = input_string[:i] + input_string[i + 1:]
+
+        for perm in generate_permutations(remaining_string):
+            permutations.append(input_string[i] + perm)
+    return permutations
 
 def is_valid_sudoku(board):
     """
@@ -94,7 +125,6 @@ def solve_n_queens(n):
     """
     Find all possible solutions to the N-Queens problem.
     """
-    pass
 
 def longest_common_subsequence(str1, str2):
     """
